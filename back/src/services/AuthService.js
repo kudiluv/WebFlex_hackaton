@@ -2,14 +2,44 @@ const argon2 = require('argon2');
 const models = global.sequelize.models;
 const config = require('../config')
 const jwt = require('jsonwebtoken')
-const { ExtractJwt } = require("passport-jwt");
+const roles = require('../consts/roles')
 
 class AuthService {
 
-    static async signUp(email, password) {
+    static async addUser(name, role) {
+        if (!name) {
+            throw new Error('invalid name')
+        }
 
+        if (!roles[role.toUpperCase()]) {
+            throw new Error('Invalid role')
+        }
+
+        const newUserRecord = await models.User.create({
+            name,
+            role
+        });
+        const registerToken = await models.RegisterToken.create({
+            userId: newUserRecord.id
+        })
+        return {
+            registerToken,
+            user: newUserRecord
+        }
+    }
+
+    static async signUp(email, password, token) {
+        
         if (!email && !password) {
             throw Error('Invalid data')
+        }
+        const registerToken = await models.RegisterToken.findOne({
+            where: {
+                id: token
+            }
+        })
+        if(!registerToken) {
+            throw Error('Token is not valid')
         }
 
         const userRecord = await models.User.findOne({
@@ -22,10 +52,22 @@ class AuthService {
         }
         const hashedPassword = await argon2.hash(password);
 
-        const newUserRecord = await models.User.create({
+        const newUserRecord = await models.User.update({
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            active: true,
+        }, {
+            where: {
+                id: registerToken.userId,
+            }
         });
+        
+        await models.RegisterToken.destroy({
+            where: {
+                id: registerToken.id
+            }
+        });
+
         return {
             accessToken: this.generateJWT(newUserRecord),
             refreshToken: await this.generateRefreshToken(newUserRecord)
@@ -58,7 +100,6 @@ class AuthService {
     static async updateToken(tokenFromRequest) {
         const token = tokenFromRequest.split(' ')[1];
         const data = jwt.verify(token, config.salt).data;
-        console.log(data.uuidToken);
         const uuid = await models.RefreshToken.findByPk(data.uuidToken);
         if (!uuid){
             throw new Error('Token is not valid');
@@ -75,7 +116,8 @@ class AuthService {
     static generateJWT(user) {
         const data = {
             id: user.id,
-            email: user.email
+            email: user.email,
+            role: user.role
         }
         const expiration = '6h';
 
@@ -86,7 +128,8 @@ class AuthService {
         const token = await models.RefreshToken.create();
         const data = {
             id: user.id,
-            uuidToken: token.id
+            uuidToken: token.id,
+            role: user.role
         }
         const expiration = `30d`;
 
