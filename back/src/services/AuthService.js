@@ -109,8 +109,11 @@ class AuthService {
                 id: uuid.id
             }
         });
-        const user = await models.User.findByPk(data.id);
-        return this.generateJWT(user);
+        const userRecord = await models.User.findByPk(data.id);
+        return {
+            accessToken: this.generateJWT(userRecord),
+            refreshToken: await this.generateRefreshToken(userRecord)
+        }
     }
 
     static generateJWT(user) {
