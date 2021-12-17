@@ -1,0 +1,53 @@
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.form {
+    max-width: 900px;
+    width: 100%;
+    background: #EAEAEA;
+    box-shadow: 10px 10px 32px #591F96;
+    border-radius: 25px;
+    padding: 125px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form > * {
+    margin-bottom: 40px;
+}
+
+.form > *:last-child {
+    margin-bottom: 0;
+}
+
+.form > button {
+    margin: 0 auto 40px auto;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 64px;
+    color: #515151;
+}
+
+a.getIn {
+    font-weight: 600;
+    font-size: 24px;
+    color: #000000;
+}
+
