@@ -1,4 +1,3 @@
-import axios from "axios";
 import instance from "./instance";
 
 export const userApi = {
@@ -8,15 +7,13 @@ export const userApi = {
             password: data.pass,
             username: data.username
         })
-        if (response.status === 200)
-            return response.data;
+        return response;
     },
     authentication: async (data) => {
         const response = await instance.post('/auth/login',{
-            mail: data.email,
-            pass: data.pass,
-        })
-        if (response.status === 200) 
-            return response.data;
+            email: data.email,
+            password: data.password,
+        }) 
+        return response.data;
     }
 }
