@@ -1,0 +1,23 @@
+{
+    "development": {
+        "username": "root",
+        "password": "example",
+        "database": "hackaton",
+        "host": "mysql-server",
+        "dialect": "mysql"
+    },
+    "test": {
+        "username": "root",
+        "password": "example",
+        "database": "hackaton",
+        "host": "mysql-server",
+        "dialect": "mysql"
+    },
+    "production": {
+        "username": "root",
+        "password": "example",
+        "database": "hackaton",
+        "host": "mysql-server",
+        "dialect": "mysql"
+    }
+}

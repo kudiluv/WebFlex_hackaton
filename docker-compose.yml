@@ -1,0 +1,33 @@
+version: "3.0"
+services:
+  api:
+    image: node:lts-alpine3.14
+    volumes:
+      - ./back:/app
+    ports:
+      - "5000:5000"
+    working_dir: /app
+    command: sh -c 
+      "npm install &&
+       sleep 5     &&
+       cd /app/src &&
+       npx sequelize-cli db:migrate &&
+       npm run dev
+       "
+    links:
+      - mysql-server
+    depends_on:
+      - mysql-server
+  mysql-server:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=example
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
+    entrypoint: "bash -c 'echo -e \"CREATE DATABASE IF NOT EXISTS hackaton;\" > /docker-entrypoint-initdb.d/create_hackaton_db.sql &&
+                          /entrypoint.sh mysqld'"
+volumes:
+  mysqldata:
+    driver: local
