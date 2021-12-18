@@ -2,8 +2,8 @@ import React from 'react';
 
 const TeacherMain = (props) => {
     return (
-        <div className="content">
-
+        <div>
+            <span>Учитель</span>
         </div>
     );
 };

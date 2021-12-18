@@ -105,10 +105,67 @@ button:hover {
     background: rgba(193, 193, 193, 0.6);
 }
 
+#root {
+    height: 100%;
+}
+
 .layout {
-    max-width: 1440px;
-    margin: 0 auto;
+    padding: 0 0 10px 0;
+    height: 100%;
+    background: #EDF1F5;
+    display: flex;
+    flex-direction: column;
+}
+.wrapper {
+    display: flex;
+    margin: 0 16px;
+    height: 100%;
 }
 .content {
-    background: #EDF1F5;
+    width: 100%;
+    margin-left: 12px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), -6px -6px 15px #E2EAF2;
+}
+.nav {
+    max-width: 300px;
+    width: 100%;
+    padding: 60px 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), -6px -6px 15px #E2EAF2;
+}
+
+.lineNavigation, .content, .nav {
+    background: #fff;
+}
+
+.lineNavigation {
+    background: #fff;
+    max-height: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.navlist,.navName, .navlist li a{
+    color: #000000;
+}
+
+.navlist li {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.navlist li a {
+    font-size: 18px;
+    line-height: 28px;
+    transition: .3s;
+    margin-left: 12px;
+}
+.navName {
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 20px;
+    display: block;
 }
