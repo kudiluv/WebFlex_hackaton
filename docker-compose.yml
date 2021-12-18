@@ -46,6 +46,7 @@ services:
     depends_on:
       - api
     volumes:
+      - ./back/uploads:/sites/hackaton/uploads
       - ./nginx:/etc/nginx/conf.d/
       - ./client:/sites/hackaton
 volumes:
