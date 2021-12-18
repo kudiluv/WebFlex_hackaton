@@ -1,9 +1,12 @@
 import React from 'react';
+import LecturesList from "./lecturesList";
+import Filter from "./filter";
 
-const TeacherMain = (props) => {
+const TeacherMain = () => {
     return (
         <div>
-            <span>Учитель</span>
+            <Filter/>
+            <LecturesList/>
         </div>
     );
 };
