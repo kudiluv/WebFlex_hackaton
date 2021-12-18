@@ -6,7 +6,14 @@
     border-radius: 5px;
     padding: 7px;
     text-align: center;
-    cursor: pointer;
+    transition: 1s;
+}
+
+.parent:hover {
+    border: 1px solid #a766df;
+    transform: translate(0, -10px);
+    box-shadow: 0 4px 4px rgb(0 0 0 / 25%), -6px -6px 15px #e2eaf2;
+    opacity: 1;
 }
 
 .title {

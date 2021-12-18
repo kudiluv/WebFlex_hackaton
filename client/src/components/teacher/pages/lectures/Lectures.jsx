@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { fetchLectures } from "../../../store/thunks/lectures";
 import { useDispatch, useSelector } from "react-redux";
 import LecturesList from "./lecturesList/index";
-import Filter from "./filter/index";
+import Filter from "./filter";
 
 const Lectures = (props) => {
     const dispatch = useDispatch();

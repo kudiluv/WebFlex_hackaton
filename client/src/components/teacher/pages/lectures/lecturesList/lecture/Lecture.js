@@ -4,12 +4,10 @@ import style from './style/style.module.css'
 
 const LectureItem = ({ id, title, description, date }) => {
     return (
-        <Link to={`/teacher/lecture/${id}`}>
-            <div className={style.parent}>
+        <Link to={`/teacher/lecture/${id}`} className={style.parent}>
                 <div className={style.title}>{ title }</div>
                 <div className={style.description}>{ description }</div>
                 <div className={style.date}>{ date }</div>
-            </div>
         </Link>
     );
 };
