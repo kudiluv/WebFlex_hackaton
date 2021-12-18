@@ -109,3 +109,6 @@ button:hover {
     max-width: 1440px;
     margin: 0 auto;
 }
+.content {
+    background: #EDF1F5;
+}

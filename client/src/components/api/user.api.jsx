@@ -2,7 +2,7 @@ import instance from "./instance";
 
 export const userApi = {
     registration: async (id, data) => {
-        const response = await instance.post('/auth/register',{
+        const response = await instance.post(`/auth/register/${id}`,{
             email: data.email,
             password: data.pass,
             name: data.username

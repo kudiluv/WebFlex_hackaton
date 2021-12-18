@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Login from './../components/pages/Login/Login';
+import Content from './Content';
 import { actions } from '../components/store/reducers/authReducer';
 import TokenService from '../components/tokenService/TokenService';
+import Header from './Header';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -11,11 +12,12 @@ const App = () => {
   }
 
   const data = useSelector(state => state.authReducer.data);
-  console.log(data);
   
   return (
     <div className="layout">
-      <Login />
+      <Header>
+        <Content role={data.role} />
+      </Header>
     </div>
   );
 };

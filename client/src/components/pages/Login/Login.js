@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import style from './style/login.module.css'
 import background from './../../media/images/loginBackground.svg';
 import { fetchAuth } from './../../store/thunks/auth';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const Login = () => {
     const [userdata, setUserdata] = useState({

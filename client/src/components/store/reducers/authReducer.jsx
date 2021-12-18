@@ -32,7 +32,7 @@ export const authSlice = createSlice(
                 state.status = "success";
                 localStorage.setItem('accessToken', action.payload.accessToken);
                 localStorage.setItem('refreshToken', action.payload.refreshToken);
-                state.role = TokenService.decodeAccessToken(action.payload.accessToken);
+                state.data = TokenService.decodeAccessToken(action.payload.accessToken);
                 state.token = action.payload.accessToken;
             })
             builder.addCase(fetchAuth.rejected,(state,action) => {
