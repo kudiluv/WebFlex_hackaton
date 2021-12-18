@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import AuthorizationLayout from "../../layouts/authorization";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchAuth } from "../../store/thunks/auth";
-
+import { Redirect } from 'react-router-dom';
 import style from "../../layouts/authorization/style/login.module.css";
 
 const Login = () => {
@@ -14,8 +14,10 @@ const Login = () => {
     const handleSubmit = () => {
         dispatch(fetchAuth(userdata));
     }
-
+    const token = useSelector(state => state.authReducer.token);
     return (
+        <>{
+            token ? <Redirect to="/teacher"> </Redirect> :
         <div>
             <AuthorizationLayout>
                 <div className={style.title}>Авторизация</div>
@@ -29,7 +31,7 @@ const Login = () => {
 
                 <a href={'/'}>У вас ещё нет аккаунта?</a>
             </AuthorizationLayout>
-        </div>
+        </div>}</>
     );
 };
 

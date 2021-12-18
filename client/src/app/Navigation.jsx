@@ -8,14 +8,15 @@ const Navigation = () => {
     switch (data.role) {
         case "teacher":
             return (
-                <nav className="nav">
+                <>
                     <span className="navName">Михаил вадимович</span>
                     <img src="" alt="" />
                     <ul className="navlist">
                         <NavTeacher></NavTeacher>
                     </ul>
-                </nav>
+                </>
             )
+        case "admin":
         default:
             return (
                 <div>kek</div>

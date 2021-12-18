@@ -2,13 +2,17 @@ import React from "react";
 import Navigation from "./Navigation";
 import './../components/globalStyles/index.css';
 import LineNavigation from "./LineNavigation";
+import { useSelector } from "react-redux";
 
 const Header = (props) => {
+    const menuActive = useSelector(state => state.menuReducer.active);
     return (
         <>
             <LineNavigation></LineNavigation>
             <div className="wrapper">
-                <Navigation></Navigation>
+                <nav className="nav">
+                    <Navigation></Navigation>
+                </nav>
                 <div className="content">
                     {props.children}
                 </div>

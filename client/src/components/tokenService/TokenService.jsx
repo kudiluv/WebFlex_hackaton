@@ -15,7 +15,14 @@ const TokenService = {
         localStorage.removeItem("refreshToken");
     },
     decodeAccessToken: (token) => {
-        return jwt(token).data;
+        if (token)
+            return jwt(token).data;
+        else 
+            return {
+                id: "",
+                role: "",
+                email: "",
+            }
     }
 }
 

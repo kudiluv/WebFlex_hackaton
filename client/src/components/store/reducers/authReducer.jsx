@@ -3,14 +3,9 @@ import { fetchAuth } from "../thunks/auth";
 import TokenService from "../../tokenService/TokenService";
 
 const initialState = {
-    token: "",
+    token: TokenService.getAccessToken(),
     status: "",
-    data: {
-        id: 0,
-        email: "",
-        name: "",
-        role: "",
-    },
+    data: TokenService.decodeAccessToken(TokenService.getAccessToken()),
     error: "",
 }
 
@@ -22,6 +17,10 @@ export const authSlice = createSlice(
             setAuth: (state, action) => {
                 state.token = action.payload;
                 state.data = TokenService.decodeAccessToken(action.payload);
+            },
+            removeAuth: (state) => {
+                state.token = "";
+                state.data = TokenService.decodeAccessToken(TokenService.getAccessToken());
             }
         },
         extraReducers: (builder) => {

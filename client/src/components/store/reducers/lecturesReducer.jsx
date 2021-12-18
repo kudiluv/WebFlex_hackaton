@@ -1,32 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAuth } from "../thunks/auth";
-import TokenService from "../../tokenService/TokenService";
+import { fetchLectures } from "../thunks/lectures";
 
 const initialState = {
     status: "",
-    lectures: [],
-    pages: 0,
+    lectures: {
+        rows: [],
+        pages: 0,
+        count: 0
+    },
     error: "",
 }
 
-export const authSlice = createSlice(
+export const lecturesSlice = createSlice(
     {
         name: "auth",
         initialState,
         reducers: {
-            setAuth: (state, action) => {
-                state.token = action.payload;
+            setLectures: (state, action) => {
+                state.lectures = action.payload;
             }
         },
         extraReducers: (builder) => {
-            builder.addCase(fetchAuth.pending,(state) => {
+            builder.addCase(fetchLectures.pending,(state) => {
                 state.status = "pending"
             })
-            builder.addCase(fetchAuth.fulfilled,(state,action) => {
+            builder.addCase(fetchLectures.fulfilled,(state,action) => {
                 state.status = "success";
-                state.lectures = action.payload.lectures;
+                state.lectures = action.payload.data;
             })
-            builder.addCase(fetchAuth.rejected,(state,action) => {
+            builder.addCase(fetchLectures.rejected,(state,action) => {
                 state.status = "fail";
                 state.error = action.payload;
             })
@@ -34,6 +36,6 @@ export const authSlice = createSlice(
     }
 );
 
-export const actions = authSlice.actions;
+export const actions = lecturesSlice.actions;
 
-export default authSlice.reducer;
+export default lecturesSlice.reducer;

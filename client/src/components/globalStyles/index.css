@@ -133,35 +133,66 @@ button:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), -6px -6px 15px #E2EAF2;
 }
 
-.lineNavigation, .content, .nav {
+.nav.active {
+
+}
+
+.line-navigation__user, .line-navigation__logout {
+    cursor: pointer;
+}
+
+.line-navigation, .content, .nav {
     background: #fff;
 }
 
-.lineNavigation {
+.line-navigation {
     background: #fff;
     max-height: 100px;
     height: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     margin-bottom: 60px;
+    padding: 0 16px;
+}
+
+.logo {
+    font-size: 32px;
+    line-height: 48px;
+    position: relative;
+}
+
+.logo:after {
+    position: absolute;
+    display: block;
+    margin: 0 auto;
+    content: "";
+    height: 2px;
+    background-color: #000000;
+    left: 0%;
+    bottom: 0;
+    width: 100%;
 }
 
 .navlist,.navName, .navlist li a{
     color: #000000;
+    width: 100%;
 }
 
 .navlist li {
     display: flex;
     align-items: center;
     padding: 12px 0;
+    cursor: pointer;
 }
 
-.navlist li a {
+.navlist li a span{
     font-size: 18px;
     line-height: 28px;
     transition: .3s;
     margin-left: 12px;
+    width: 100%;
 }
 .navName {
     font-size: 24px;

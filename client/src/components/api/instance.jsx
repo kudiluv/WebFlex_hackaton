@@ -38,6 +38,7 @@ async (error) => {
         TokenService.updateAccessToken(accessToken);
         return instance(config);
       } catch (err) {
+        TokenService.removeTokens()
         return Promise.reject(err);
       }
     }
