@@ -1,5 +1,6 @@
 const { Strategy, ExtractJwt } = require("passport-jwt");
 const config = require('../config');
+const models = global.sequelize.models;
 
 const options = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),

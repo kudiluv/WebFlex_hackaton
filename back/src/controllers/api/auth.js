@@ -1,6 +1,9 @@
 const router = require("express").Router();
-const express = require("express");
 const AuthService = require("../../services/AuthService");
+const passport = require("passport");
+const passportCheckRole = require("../../middlewares/passportCheckRole")
+const roles = require("../../consts/roles")
+
 
 router.post('/register/:id', async(req, res) => {
     const data = req.body;
@@ -32,7 +35,10 @@ router.post('/login', async(req, res) => {
     }
 });
 
-router.post('/create-user', async(req, res) => {
+router.post('/create-user',
+passport.authenticate('jwt', {session: false}),
+passportCheckRole(roles.ADMIN),
+async(req, res) => {
     const data = req.body;
     try {
         const result = await AuthService.addUser(data.name, data.role);

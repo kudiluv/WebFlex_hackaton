@@ -5,6 +5,7 @@ const express = require('express');
 const cors = require('cors');
 const useRouter = require('./controllers/index')
 const passport = require('passport');
+const usePassportStrategy = require("./middlewares/passport");
 
 
 
@@ -14,6 +15,7 @@ app.use(express.text())
 app.use(express.json());
 app.use(passport.initialize())
 useRouter(app);
+usePassportStrategy(passport)
 
 
 app.listen(config.app.port, async() => {
