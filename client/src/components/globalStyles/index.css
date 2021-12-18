@@ -81,18 +81,18 @@ input:focus {
 }
 
 input {
-    background: #DEDEDE;
-    border: 1px solid #8B8B8B;
-    box-shadow: 0 4px 25px rgba(199, 199, 199, 0.94);
+    background: #EBEBEB;
+    border: 1px solid #E1E1E1;
+    box-shadow: 4px 4px 4px rgba(199, 199, 199, 0.94);
     border-radius: 10px;
     font-size: 24px;
     padding: 15px 30px;
 }
 
 button {
-    background: #C1C1C1;
-    border: 1px solid #797979;
-    box-shadow: 0 4px 25px rgba(199, 199, 199, 0.94);
+    background: #FFFFFF;
+    border: 1px solid #E1E1E1;
+    box-shadow: 4px 4px 4px rgba(199, 199, 199, 0.94);
     border-radius: 10px;
     font-weight: 600;
     font-size: 24px;
