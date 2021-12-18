@@ -4,29 +4,21 @@ const storage = require("../../../helpers/multerStorge");
 const LectureService = require("../../../services/LectureService")
 const models = global.sequelize.models;
 const path = require("path")
-const upload = multer({ 
-  storage: storage,
-  fileFilter: function (req, file, callback) {
-    var ext = path.extname(file.originalname);
-    if(ext !== '.mp4' && ext !== '.doc' && ext !== '.gocx') {
-        return callback(new Error('Only (.mp4|.doc|.gocx) are allowed'))
-    }
-    callback(null, true)
-  } 
-});
+const upload = require("../../../helpers/multerStorge").upload;
 
 router.get('/', async (req, res) => {
   const {page=1} = req.query;
   const limit = 15;
-  result = await models.Lecture.findAll({
+  result = await models.Lecture.findAndCountAll({
       limit,
       offset: (page - 1) * limit
   })
+  result.pages = Math.ceil(result.count / limit)
   res.json(result);
 })
 
 router.post('/', upload.array('files', 10), async (req, res) => {
-  result = await LectureService.addLecture(req.body, req.files)
+  result = await LectureService.addLecture(req.body, req.files, req.user)
   res.json(result);
 })
 

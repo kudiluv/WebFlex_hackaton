@@ -1,27 +1,32 @@
+const getTypeDocument = require("../helpers/getTypeDocument")
 const models = global.sequelize.models;
 
 class LectureService {
-    static async addLecture(lectureDescription, files=[]) {
-        const lecture = await this.#addLecture(lectureDescription);
+    static async addLecture(lectureDescription, files=[], user) {
+        const lecture = await this.#addLecture(lectureDescription, user);
         const resultFiles = await this.#attachFiles(lecture, files)
         return {
             lecture,
             documents: resultFiles
         }
     }
-    static async #addLecture(lecture) {
+    static async #addLecture(lecture, user) {
         const response = await models.Lecture.create({
+            userId: user.id,
             name: lecture.name
         }); 
         return response
     }
+    
+    
     static async #attachFiles(lecture, files=[]) {
         const result = [];
         for (const file of files) {
             const document = await models.Document.create({
-                type: file.mimetype,
+                type: getTypeDocument(file.filename),
                 lectureId: lecture.id,
-                path: "uploads/" + file.filename
+                path: "uploads/" + file.filename,
+                ocr: false
             })
            result.push(document)
         }
