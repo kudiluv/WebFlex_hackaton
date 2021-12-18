@@ -10,7 +10,7 @@ const Header = (props) => {
         <>
             <LineNavigation></LineNavigation>
             <div className="wrapper">
-                <nav className="nav">
+                <nav className={`nav ${menuActive ? 'nav_unactive': ''}`}>
                     <Navigation></Navigation>
                 </nav>
                 <div className="content">

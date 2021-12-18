@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { fetchLectures } from "../../../store/thunks/lectures";
 import { useDispatch, useSelector } from "react-redux";
+import LecturesList from "./lecturesList/index";
+import Filter from "./filter/index";
 
 const Lectures = (props) => {
     const dispatch = useDispatch();
@@ -9,7 +11,10 @@ const Lectures = (props) => {
     },[props,dispatch])
     const lectures = useSelector(state => state.lecturesReducer.lectures);
     return (
-        <>лекции</>
+        <>
+            <Filter/>
+            <LecturesList lectures={lectures.rows}/>
+        </>
     )
 }
 

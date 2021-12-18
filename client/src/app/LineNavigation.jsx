@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import './../components/globalStyles/index.css';
 import usericon from './../components/media/images/usericon.svg';
 import logout from './../components/media/images/logout.svg';

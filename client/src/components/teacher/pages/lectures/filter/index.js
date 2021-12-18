@@ -3,9 +3,9 @@ import style from './style/style.module.css'
 
 const Filter = () => {
     return (
-        <>
-            <div className={style.filter}>Поиск: электроника</div>
-        </>
+        <div>
+            <div className={style.filter}>Лекции</div>
+        </div>
     );
 };
 
