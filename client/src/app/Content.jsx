@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import Login from '../components/pages/Login/Login';
+import Login from '../components/pages/Login';
 import Teacher from '../components/teacher/pages/main/Main';
 
 const Content = (props) => {
