@@ -52,7 +52,7 @@ class AuthService {
         }
         const hashedPassword = await argon2.hash(password);
 
-        const newUserRecord = await models.User.update({
+        await models.User.update({
             email,
             password: hashedPassword,
             active: true,
@@ -67,11 +67,7 @@ class AuthService {
                 id: registerToken.id
             }
         });
-
-        return {
-            accessToken: this.generateJWT(newUserRecord),
-            refreshToken: await this.generateRefreshToken(newUserRecord)
-        }
+        return this.login(email, password)
     }
 
     static async login(email, password) {
