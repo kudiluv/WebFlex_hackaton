@@ -1,0 +1,27 @@
+.container {
+    border: 1px solid #000000;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    height: 100%;
+    border-radius: 5px;
+    padding: 56px 70px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.form input {
+    max-width: 400px;
+    margin: 25px 0;
+}
+
+.radioButton {
+    font-size: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 350px;
+    width: 100%;
+}

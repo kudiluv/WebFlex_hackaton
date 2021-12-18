@@ -1,10 +1,10 @@
 import React from 'react';
-import Lectures from "../lectures/Lectures";
+import SuperUser from "../../../pages/SuperUser";
 
 const TeacherMain = () => {
     return (
         <>
-          <Lectures/>
+            <SuperUser/>
         </>
     );
 };

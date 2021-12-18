@@ -3,8 +3,10 @@
     border: 1px solid #000000;
     box-shadow: 4px 4px 11px #E9E9E9;
     border-radius: 5px;
-    padding: 55px 105px;
-
+    padding: 55px 105px 95px 105px;
+    height: 100%;
+    position: relative;
+    overflow-y: auto;
 }
 
 .container {

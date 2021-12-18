@@ -3,6 +3,10 @@
     box-shadow: 4px 4px 11px #E9E9E9;
     border-radius: 5px;
     padding: 40px 53px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .header {
