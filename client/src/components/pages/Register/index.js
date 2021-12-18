@@ -28,7 +28,7 @@ const Register = () => {
     return (
         <>{
             token ? <Redirect to="/teacher"> </Redirect> :
-        <div>
+        <>
             <AuthorizationLayout>
                 <div className={style.title}>Регистрация</div>
 
@@ -44,7 +44,7 @@ const Register = () => {
                     согласие на обработку персональных данных
                 </div>
             </AuthorizationLayout>
-        </div>}</>);
+        </>}</>);
 };
 
 export default Register;

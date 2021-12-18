@@ -4,10 +4,10 @@ import Filter from "./filter";
 
 const TeacherMain = () => {
     return (
-        <div>
+        <>
             <Filter/>
             <LecturesList/>
-        </div>
+        </>
     );
 };
 

@@ -9,7 +9,7 @@ const Lectures = (props) => {
     },[props,dispatch])
     const lectures = useSelector(state => state.lecturesReducer.lectures);
     return (
-        <div>лекции</div>
+        <>лекции</>
     )
 }
 

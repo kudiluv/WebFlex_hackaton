@@ -9,7 +9,7 @@ import { checkRole } from '../components/checkRole/checkRole';
 
 const Content = (props) => {
     return (
-        <div>
+        <>
             <Switch>
                 <Route exact path="/" component={Login}></Route>
                 <Route exact path="/register/:id" component={Register}></Route>
@@ -28,7 +28,7 @@ const Content = (props) => {
                 }}>
                 </Route>
             </Switch>
-        </div>
+        </>
     );
 };
 

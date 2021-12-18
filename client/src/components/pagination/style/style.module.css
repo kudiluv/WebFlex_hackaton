@@ -3,12 +3,32 @@
 }
 
 .leftBtn {
+    margin-right: 10px;
+    cursor: pointer;
 }
 
 .currentPage {
-
+    font-style: normal;
+    font-size: 24px;
+    color: #000000;
 }
 
 .rightBtn {
+    margin-left: 10px;
+    cursor: pointer;
+}
 
+.leftBtn > svg:hover > path,
+.rightBtn > svg:hover > path {
+    fill: #a9a2a2;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.container {
+    display: flex;
 }

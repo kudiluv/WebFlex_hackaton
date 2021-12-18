@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './style/style.module.css'
 import LectureItem from "./Lecture/Lecture";
+import Pagination from "../../../../pagination";
 
 
 const LecturesList = () => {
@@ -51,6 +52,7 @@ const LecturesList = () => {
                         date={item.date}
                     />)}
             </div>
+            <Pagination/>
         </div>
     );
 };
