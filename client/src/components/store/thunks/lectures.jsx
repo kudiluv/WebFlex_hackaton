@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../api/instance";
 
 export const fetchLectures = createAsyncThunk(
-    'teacher/lectures',
+    'teacher/lecturesList',
     async (payload, {rejectWithValue}) => {
         try {
             return await api.get(payload);

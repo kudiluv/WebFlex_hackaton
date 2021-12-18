@@ -1,0 +1,14 @@
+.lectures {
+    margin-top: 25px;
+    border: 1px solid #000000;
+    box-shadow: 4px 4px 11px #E9E9E9;
+    border-radius: 5px;
+    padding: 55px 105px;
+
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 45px;
+}
