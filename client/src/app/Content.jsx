@@ -50,6 +50,12 @@ const Content = (props) => {
                         return <Redirect to="/"></Redirect>;
                     else
                         return <Search></Search>;
+                }}></Route>
+                    <Route exact path="/student" render={() => {
+                    if (!checkRole.student(props.role))
+                        return <Redirect to="/"></Redirect>;
+                    else
+                        return <Search></Search>;
                 }}>
                 </Route>
                 <Route exact path="/admin/add-user" render={() => {

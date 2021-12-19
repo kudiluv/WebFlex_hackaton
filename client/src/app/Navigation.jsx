@@ -11,7 +11,7 @@ const Navigation = () => {
         case "teacher":
             return (
                 <>
-                    <span className="navName">Михаил вадимович</span>
+                    <span className="navName">{data.name}</span>
                     <img src="" alt="" />
                     <ul className="navlist">
                         <NavTeacher></NavTeacher>
@@ -21,7 +21,7 @@ const Navigation = () => {
         case "student":
             return (
                 <>
-                    <span className="navName">Иван Махалыч</span>
+                    <span className="navName">{data.name}</span>
                     <img src="" alt="" />
                     <ul className="navlist">
                         <NavStudent></NavStudent>
@@ -31,7 +31,7 @@ const Navigation = () => {
         case "admin": 
             return (
                 <>
-                    <span className="navName">Администратор</span>
+                    <span className="navName">{data.name}</span>
                     <img src="" alt="" />
                     <ul className="navlist">
                         <NavAdmin></NavAdmin>
