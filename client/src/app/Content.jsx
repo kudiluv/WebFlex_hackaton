@@ -6,6 +6,8 @@ import Teacher from '../components/teacher/pages/main/Main';
 import Lectures from '../components/teacher/pages/lectures/Lectures';
 import './../components/globalStyles/index.css';
 import { checkRole } from '../components/checkRole/checkRole';
+import UploadLecture from '../components/teacher/pages/uploadLecture';
+import Search from '../components/student/pages/search/Search';
 
 const Content = (props) => {
     return (
@@ -28,12 +30,26 @@ const Content = (props) => {
                         return <Lectures></Lectures>
                 }}>
                 </Route>
-                <Route exact path="*" component={() => (
+                {/* <Route exact path="*" component={() => (
                     <>
                         Упс, кажется вы потерялись <Link to='/teacher'><span
                         style={{color: 'blue'}}>Вернуться</span></Link>
                     </>
-                )}/>
+                )}/> */}
+                <Route exact path="/teacher/upload-lecture" render={() => {
+                    if (!checkRole.teacher(props.role))
+                        return <Redirect to="/"></Redirect>;
+                    else
+                        return <UploadLecture></UploadLecture>
+                }}>
+                </Route>
+                <Route exact path="/student/search" render={() => {
+                    if (!checkRole.student(props.role))
+                        return <Redirect to="/"></Redirect>;
+                    else
+                        return <Search></Search>;
+                }}>
+                </Route>
             </Switch>
         </>
     );

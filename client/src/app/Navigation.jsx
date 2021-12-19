@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import NavTeacher from "../components/teacher/nav/NavTeacher";
+import NavStudent from "../components/student/nav/NavStudent";
 import './../components/globalStyles/index.css';
 
 const Navigation = () => {
@@ -16,7 +17,16 @@ const Navigation = () => {
                     </ul>
                 </>
             )
-        case "admin":
+        case "student":
+            return (
+                <>
+                    <span className="navName">Иван Махалыч</span>
+                    <img src="" alt="" />
+                    <ul className="navlist">
+                        <NavStudent></NavStudent>
+                    </ul>
+                </>
+            )
         default:
             return (
                 <div>kek</div>

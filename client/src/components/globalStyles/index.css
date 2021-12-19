@@ -111,7 +111,6 @@ button:hover {
 
 .layout {
     padding: 0 0 10px 0;
-    height: 100%;
     background: #EDF1F5;
     display: flex;
     flex-direction: column;
@@ -119,8 +118,9 @@ button:hover {
 }
 .wrapper {
     display: flex;
-    margin: 0 16px;
+    margin: 0 16px 16px 16px;
     height: 100%;
+    flex: 1;
 }
 .content {
     width: 100%;

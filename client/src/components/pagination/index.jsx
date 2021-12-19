@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './style/style.module.css'
 
-const Pagination = () => {
+const Pagination = (props) => {
     return (
         <div className={style.pagination}>
             <div className={style.container}>

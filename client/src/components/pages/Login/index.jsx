@@ -15,9 +15,10 @@ const Login = () => {
         dispatch(fetchAuth(userdata));
     }
     const token = useSelector(state => state.authReducer.token);
+    const role = useSelector(state => state.authReducer.data.role);
     return (
         <>{
-            token ? <Redirect to="/teacher"> </Redirect> :
+            token ? <Redirect to={`/${role}`}> </Redirect> :
         <div>
             <AuthorizationLayout>
                 <div className={style.title}>Авторизация</div>

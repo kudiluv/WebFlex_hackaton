@@ -10,6 +10,8 @@ services:
     command: sh -c 
       "apt update &&
        apt install ffmpeg -y &&
+       apt-get install musl-dev -y &&
+       ln -s /usr/lib/x86_64-linux-musl/libc.so /lib/libc.musl-x86_64.so.1 ||
        npm install &&
        cd /app/src &&
        npx sequelize-cli db:migrate &&

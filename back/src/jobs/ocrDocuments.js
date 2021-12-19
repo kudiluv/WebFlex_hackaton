@@ -12,6 +12,7 @@ module.exports = async () => {
     });
     result.forEach(async (document) => {
         const text = await mammoth.extractRawText({path: '/app/' + document.path}).value
+        console.log(text);
         await EsService.addDocument(text, document.lectureId)
         await models.Document.update({
             ocr: true

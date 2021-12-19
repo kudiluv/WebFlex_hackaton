@@ -1,0 +1,72 @@
+.wrapper {
+    
+}
+
+.content {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 11px #E9E9E9;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    margin: 32px 0 25px 0;
+    padding: 55px 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input,.textarea {
+    background: #EBEBEB;
+    box-shadow: 4px 4px 4px rgba(199, 199, 199, 0.94);
+    border-radius: 5px;
+    border: none;
+    transition: .3s;
+    margin-bottom: 24px;
+}
+.input:focus, .textarea:focus {
+    background: #fff;
+}
+
+.textarea {
+    font-size: 18px;
+    padding: 15px 30px;
+}
+
+.upload {
+    height: 200px;
+    display: flex;
+    width: 100%;
+}
+
+.upload div {
+    max-width: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000000;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.upload div:hover {
+}
+
+.submit {
+    box-shadow: 6px 6px 0px rgba(199, 199, 199, 0.94);
+    background: #EBEBEB;
+    font-size: 18px;
+    margin: 0 auto;
+    transition: .3s;
+}
+
+.submit:hover {
+    box-shadow: 1px 1px 0px rgba(199, 199, 199, 0.94);
+}
+
+#uploadFile {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
