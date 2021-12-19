@@ -14,10 +14,12 @@ class LectureService {
     static async #addLecture(lecture, user) {
         const response = await models.Lecture.create({
             userId: user.id,
+            description: lecture.description,
             name: lecture.name
         });
         const lectureText = lecture.name; 
-        await EsServices.addDocument(lectureText, response.id)
+        await EsServices.addDocument(lectureText + " " + lecture.description,
+        response.id)
         return response
     }
     

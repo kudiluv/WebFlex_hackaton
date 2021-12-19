@@ -10,6 +10,9 @@ router.get('/', async (req, res) => {
   const {page=1} = req.query;
   const limit = 15;
   result = await models.Lecture.findAndCountAll({
+      where: {
+        userId: req.user.id
+      },
       limit,
       offset: (page - 1) * limit
   })
