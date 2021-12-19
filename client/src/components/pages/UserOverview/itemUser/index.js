@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './style/item.User.module.css'
+import style from './style/itemUser.module.css'
 
 const ItemUser = ({fio, email}) => {
     return (
