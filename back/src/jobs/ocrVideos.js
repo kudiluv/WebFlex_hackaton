@@ -9,7 +9,7 @@ module.exports = async () => {
     try {
         const videos = await models.Document.findAll({
             where: {
-                //ocr: false,
+                ocr: false,
                 type: 'video'
             },    
             limit: 100
