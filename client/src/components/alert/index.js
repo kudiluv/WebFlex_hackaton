@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import style from './style/alert.module.css'
 
-const Alert = (text = false) => {
+const Alert = (text = "") => {
     const [active, setActive] = useState(text)
 
     const onClose = () => {
@@ -11,7 +11,7 @@ const Alert = (text = false) => {
         return (
             <div className={style.container}>
                 <div className={style.content}>
-                    <div>Пользователь успешно добавлен</div>
+                    <div>{text}</div>
 
                     <span className={style.close} onClick={onClose}>X</span>
                 </div>

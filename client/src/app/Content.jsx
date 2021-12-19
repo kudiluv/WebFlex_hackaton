@@ -9,6 +9,7 @@ import { checkRole } from '../components/checkRole/checkRole';
 import UploadLecture from '../components/teacher/pages/uploadLecture';
 import Search from '../components/student/pages/search/Search';
 import ItemLecture from '../components/teacher/pages/itemLecture';
+import AddUser from '../components/admin/pages/AddUser';
 
 const Content = (props) => {
     return (
@@ -37,12 +38,6 @@ const Content = (props) => {
                         return <Lectures></Lectures>
                 }}>
                 </Route>
-                {/* <Route exact path="*" component={() => (
-                    <>
-                        Упс, кажется вы потерялись <Link to='/teacher'><span
-                        style={{color: 'blue'}}>Вернуться</span></Link>
-                    </>
-                )}/> */}
                 <Route exact path="/teacher/upload-lecture" render={() => {
                     if (!checkRole.teacher(props.role))
                         return <Redirect to="/"></Redirect>;
@@ -55,6 +50,13 @@ const Content = (props) => {
                         return <Redirect to="/"></Redirect>;
                     else
                         return <Search></Search>;
+                }}>
+                </Route>
+                <Route exact path="/admin/add-user" render={() => {
+                    if (!checkRole.admin(props.role))
+                        return <Redirect to="/"></Redirect>;
+                    else
+                        return <AddUser></AddUser>;
                 }}>
                 </Route>
             </Switch>

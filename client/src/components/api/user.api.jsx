@@ -14,5 +14,12 @@ export const userApi = {
             password: data.password,
         }) 
         return response.data;
+    },
+    createUser: async (data) => {
+        const response = await instance.post('/auth/create-user',{
+            role: data.role,
+            name: data.name,
+        }) 
+        return response.data;
     }
 }

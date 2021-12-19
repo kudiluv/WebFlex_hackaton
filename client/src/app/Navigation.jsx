@@ -3,9 +3,11 @@ import { useSelector } from "react-redux";
 import NavTeacher from "../components/teacher/nav/NavTeacher";
 import NavStudent from "../components/student/nav/NavStudent";
 import './../components/globalStyles/index.css';
+import NavAdmin from "../components/admin/nav/NavAdmin";
 
 const Navigation = () => {
     const data = useSelector(state => state.authReducer.data);
+    console.log(data);
     switch (data.role) {
         case "teacher":
             return (
@@ -24,6 +26,16 @@ const Navigation = () => {
                     <img src="" alt="" />
                     <ul className="navlist">
                         <NavStudent></NavStudent>
+                    </ul>
+                </>
+            )
+        case "admin": 
+            return (
+                <>
+                    <span className="navName">Администратор</span>
+                    <img src="" alt="" />
+                    <ul className="navlist">
+                        <NavAdmin></NavAdmin>
                     </ul>
                 </>
             )

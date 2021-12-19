@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Content from './Content';
 import Header from './Header';
+require('dotenv').config();
 
 const App = () => {
 
