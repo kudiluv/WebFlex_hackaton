@@ -17,7 +17,14 @@ module.exports = {
       password: await argon2.hash('admin'),
       active: true,
       role: 'teacher'
-    }], {});
+    },{
+      name: 'igor',
+      email: 'igor@email.com',
+      password: await argon2.hash('admin'),
+      active: true,
+      role: 'student'
+    }
+  ], {});
     
   },
 
