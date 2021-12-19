@@ -23,7 +23,7 @@ const UploadLecture = (props) => {
             <form className={styles.content} name="add">
                 <input onChange={event => setUploadLecture({ ...uploadLecture, name: event.target.value })} className={styles.input} type="text" placeholder="Название лекции" name="name" />
                 <textarea className={styles.textarea} id="" cols="30" rows="10" placeholder="Короткое описание лекции" resize="none" name="description"></textarea>
-                <input onChange={event => setUploadLecture({ ...uploadLecture, files: event.target.files })} id={styles.uploadFile} type="file" multiple="multiple" draggable={true} name="files" />
+                <input onChange={event => setUploadLecture({ ...uploadLecture, files: event.target.files })} id={styles.uploadFile} type="file" multiple="multiple" draggable={true} name="files" accept=".docx,.mp4"/>
                 <div className={styles.upload__title}><span>Загрузите файлы ("docx","mp4"): </span></div>
                 <div className={styles.uploadedFiles}>
                     {uploadLecture.files.length !== 0 ? Object.entries(uploadLecture.files).map((file => {
