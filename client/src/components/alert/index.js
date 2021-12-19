@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './style/alert.module.css'
 
-const Alert = (text = "") => {
-    const [active, setActive] = useState(text)
+const Alert = ({active, text}) => {
+    const [_active, setActive] = useState(active)
+
+    useEffect(() => {
+        setActive(active)
+    }, [active])
 
     const onClose = () => {
         setActive(false)
     }
-    if (active) {
+
+    if (_active)
         return (
-            <div className={style.container}>
+            <div className={style.container} onClick={() => setActive(false)}>
                 <div className={style.content}>
                     <div>{text}</div>
 
@@ -18,9 +23,9 @@ const Alert = (text = "") => {
 
             </div>
         );
-    }
 
     return <></>
+
 };
 
 export default Alert;
