@@ -24,11 +24,11 @@ const LecturesList = (props) => {
                         key={item.id}
                         id={item.id}
                         title={item.name}
-                        description=""
+                        description={item.description}
                         date={item.updatedAt}
                     />)}
             </div>
-            <Pagination pages={lectures.pages} handlePage={getCurrentPage} current={page}></Pagination>
+            {lectures.count > 15 ? <Pagination pages={lectures.pages} handlePage={getCurrentPage} current={page}></Pagination> : ""}
         </div>
     );
 };

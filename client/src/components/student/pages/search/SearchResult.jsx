@@ -6,9 +6,9 @@ const SearchResult = (props) => {
     return (
         <Link to={props.id}>
             <div className={styles.search__result}>
-                <h2 className={styles.result__title}>Какой то заголовок</h2>
-                <p className={styles.result__shortDesc}>Описание, но только короткое, а то не поместится</p>
-                <p className={styles.result__date}>Дата: </p>
+                <h2 className={styles.result__title}>{props.item.name}</h2>
+                <p className={styles.result__shortDesc}>{props.item.description}</p>
+                <p className={styles.result__date}>Дата: {props.item.updatedAt}</p>
             </div>
         </Link>
     )

@@ -7,7 +7,6 @@ import NavAdmin from "../components/admin/nav/NavAdmin";
 
 const Navigation = () => {
     const data = useSelector(state => state.authReducer.data);
-    console.log(data);
     switch (data.role) {
         case "teacher":
             return (

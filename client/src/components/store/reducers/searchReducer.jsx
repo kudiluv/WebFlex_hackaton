@@ -26,7 +26,7 @@ export const searchSlice = createSlice(
             })
             builder.addCase(fetchSearch.fulfilled,(state,action) => {
                 state.status = "success";
-                state.searchResults = action.payload;
+                state.searchResults = action.payload.data;
             })
             builder.addCase(fetchSearch.rejected,(state,action) => {
                 state.status = "fail";

@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import styles from './styles/search.module.css';
 import { fetchSearch } from "../../../store/thunks/search";
 
 const SearchInput = (props) => {
     const [value, setValue] = useState("");
     const dispatch = useDispatch();
-    const handleSubmit = async () => {
-        dispatch(fetchSearch(`/lectures/search?keyword=${value}&page=1`));
+    const handleSubmit = () => {
+        dispatch(fetchSearch(`/lectures/search?keyword=${value}&page=${props.page}`));
     }
-    let kek = useSelector(state => state.searchReducer.searchResults);
-    console.log(kek);
     return (
         <div className={styles.search__form}>
             <input className={styles.search__input} type="text" onChange={event => setValue(event.target.value)} value={value} placeholder="Найти..."/>
