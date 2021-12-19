@@ -1,0 +1,36 @@
+.container {
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 0px #00000069;
+    display: flex;
+    justify-content: space-between;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.container:hover {
+    transform: translate(0, -5px);
+    box-shadow: 0 2px 3px 0 #00000069;
+}
+
+.info {
+    max-width: 300px;
+    width: 100%;
+}
+
+.info div:first-child {
+    margin-bottom: 20px;
+}
+
+.info div span {
+    font-weight: bold;
+}
+
+.delete svg {
+    width: 25px;
+    height: 100%;
+}
+
+.delete svg:hover {
+    opacity: .5;
+}

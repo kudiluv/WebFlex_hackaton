@@ -1,11 +1,10 @@
 import React from 'react';
-import Loader from "../../../loader";
-import Alert from "../../../alert";
+import UserOverview from "../../../pages/UserOverview";
 
 const TeacherMain = () => {
     return (
         <>
-            <Alert/>
+            <UserOverview/>
         </>
     );
 };
