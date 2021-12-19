@@ -34,6 +34,17 @@
     width: 100%;
 }
 
+.upload__title {
+    font-size: 18px;
+    padding-bottom: 16px;
+    font-weight: bold;
+}
+
+.uploadedFiles {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .upload div {
     max-width: 150px;
     width: 100%;

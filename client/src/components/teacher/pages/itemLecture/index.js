@@ -4,6 +4,7 @@ import style from './style/style.module.css';
 import { fetchLecture } from '../../../store/thunks/lectures';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import FilePreview from '../../../filepreview/FilePreview';
 
 const ItemLecture = () => {
     const { id } = useParams();
@@ -12,7 +13,6 @@ const ItemLecture = () => {
         dispatch(fetchLecture(`/lectures/${id}`));
     },[id,dispatch]);
     const lecture = useSelector(state => state.lectureReducer.lecture);
-    console.log(lecture.documents);
     return (
         <>{ lecture ? 
             <>
@@ -34,10 +34,7 @@ const ItemLecture = () => {
                     {lecture.documents.map(
                         item => {
                             return (
-                            <div className={style.lecture}>
-                                <div className={style.preview}></div>
-                                <div className={style.date}>{item.updatedAt}</div>
-                            </div>
+                                <FilePreview type={item.type} path={item.path} updatedAt={item.updatedAt}></FilePreview>
                             )
                         }
                     )}
