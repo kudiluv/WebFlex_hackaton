@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Redirect, Link } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Login from '../components/pages/Login/index';
 import Register from '../components/pages/Register/index';
 import Teacher from '../components/teacher/pages/main/Main';
