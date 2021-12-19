@@ -12,19 +12,17 @@ const UploadLecture = (props) => {
         let result = "";
         event.preventDefault();
         if (uploadLecture.name !== "" && uploadLecture.files.length !== 0) {
-            const data = new FormData();
-            data.append('files', uploadLecture.files);
-            data.append('name', uploadLecture.name);
+            const data = new FormData(document.forms.add);
             result = await lectureApi.upload(data);
         }
     }
     return (
         <div className={styles.wrapper}>
             <PageTitle text="Загрузить"></PageTitle>
-            <form className={styles.content}>
-                <input onChange={event => setUploadLecture({...uploadLecture, name: event.target.value})} className={styles.input} type="text" placeholder="Название лекции" />
-                <textarea className={styles.textarea} name="" id="" cols="30" rows="10" placeholder="Короткое описание лекции" resize="none"></textarea>
-                <input onChange={event => setUploadLecture({...uploadLecture, files: event.target.files})} id={styles.uploadFile} type="file" multiple= "multiple" draggable={true}/>
+            <form className={styles.content} name="add">
+                <input onChange={event => setUploadLecture({...uploadLecture, name: event.target.value})} className={styles.input} type="text" placeholder="Название лекции" name="name" />
+                <textarea className={styles.textarea} id="" cols="30" rows="10" placeholder="Короткое описание лекции" resize="none" name="description"></textarea>
+                <input onChange={event => setUploadLecture({...uploadLecture, files: event.target.files})} id={styles.uploadFile} type="file" multiple= "multiple" draggable={true} name="files" />
                 <label htmlFor={styles.uploadFile} className={styles.upload} draggable={true}>
                     <div>
                         <svg width="60" height="60" viewBox="0 0 150 132" fill="none" xmlns="http://www.w3.org/2000/svg">
