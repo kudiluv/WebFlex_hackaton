@@ -6,7 +6,7 @@ const initialState = {
 
 export const menuSlice = createSlice(
     {
-        name: "auth",
+        name: "menu",
         initialState,
         reducers: {
             setActive: (state, action) => {
@@ -17,6 +17,6 @@ export const menuSlice = createSlice(
     }
 );
 
-export const actions = menuSlice.actions;
+export const actionsMenu = menuSlice.actions;
 
 export default menuSlice.reducer;

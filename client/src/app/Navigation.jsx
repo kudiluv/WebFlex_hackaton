@@ -29,7 +29,7 @@ const Navigation = () => {
             )
         default:
             return (
-                <div>kek</div>
+                <div>Как вы здесь оказались?</div>
             );
     }
 }

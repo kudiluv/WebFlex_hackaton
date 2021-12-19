@@ -16,6 +16,7 @@ const UploadLecture = (props) => {
             result = await lectureApi.upload(data);
         }
     }
+    console.log(uploadLecture.files[0]);
     return (
         <div className={styles.wrapper}>
             <PageTitle text="Загрузить"></PageTitle>

@@ -13,7 +13,7 @@ const initialState = {
 
 export const searchSlice = createSlice(
     {
-        name: "auth",
+        name: "search",
         initialState,
         reducers: {
             setLectures: (state, action) => {

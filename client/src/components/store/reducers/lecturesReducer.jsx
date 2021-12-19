@@ -6,14 +6,15 @@ const initialState = {
     lectures: {
         rows: [],
         pages: 0,
-        count: 0
+        count: 0,
+        lecture: {}
     },
     error: "",
 }
 
 export const lecturesSlice = createSlice(
     {
-        name: "auth",
+        name: "lectures",
         initialState,
         reducers: {
             setLectures: (state, action) => {

@@ -11,3 +11,14 @@ export const fetchLectures = createAsyncThunk(
         }
     }
 );
+
+export const fetchLecture = createAsyncThunk(
+    'teacher/lecture',
+    async (payload, {rejectWithValue}) => {
+        try {
+            return await api.get(payload);
+        } catch (error) {
+            return rejectWithValue(error.message);
+        }
+    }
+);

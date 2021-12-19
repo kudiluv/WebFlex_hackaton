@@ -8,6 +8,7 @@ import './../components/globalStyles/index.css';
 import { checkRole } from '../components/checkRole/checkRole';
 import UploadLecture from '../components/teacher/pages/uploadLecture';
 import Search from '../components/student/pages/search/Search';
+import ItemLecture from '../components/teacher/pages/itemLecture';
 
 const Content = (props) => {
     return (
@@ -16,6 +17,12 @@ const Content = (props) => {
 
                 <Route exact path="/" component={Login}></Route>
                 <Route exact path="/register/:id" component={Register}></Route>
+                <Route exact path="/lecture/:id" render={() => {
+                    if (checkRole.teacher(props.role) || checkRole.student(props.role))
+                        return <ItemLecture></ItemLecture>
+                    else
+                        return <Redirect to="/"></Redirect>;
+                }}></Route>
                 <Route exact path="/teacher" render={() => {
                     if (!checkRole.teacher(props.role))
                         return <Redirect to="/"></Redirect>;

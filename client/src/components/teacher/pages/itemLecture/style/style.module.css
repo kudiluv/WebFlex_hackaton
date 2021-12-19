@@ -11,13 +11,27 @@
 
 .header {
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.header svg {
+    padding: 8px;
+    border-radius: 50%;
+    transition: .3s;
+}
+
+.header svg:hover {
+    cursor: pointer;
+    background-color: #E9E9E9;
 }
 
 .description {
     font-weight: 500;
     font-size: 24px;
     color: #959595;
-    max-width: 550px;
 }
 
 .settings {

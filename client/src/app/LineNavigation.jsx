@@ -4,13 +4,14 @@ import usericon from './../components/media/images/usericon.svg';
 import logout from './../components/media/images/logout.svg';
 import TokenService from '../components/tokenService/TokenService';
 import { useDispatch, useSelector } from "react-redux";
-import { actions } from './../components/store/reducers/menuReducer';
+import { actionsMenu } from "../components/store/reducers/menuReducer";
+import { actions } from "../components/store/reducers/authReducer";
 
 const LineNavigation = (props) => {
     const dispatch = useDispatch();
     const active = !useSelector(state => state.menuReducer.active)
     const handleHideMenu = () => {
-        dispatch(actions.setActive(active))
+        dispatch(actionsMenu.setActive(active))
     }
     const handleLogOut = () => {
         TokenService.removeTokens();
