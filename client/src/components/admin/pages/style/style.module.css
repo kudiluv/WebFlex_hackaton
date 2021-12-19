@@ -1,0 +1,58 @@
+.container {
+    border: 1px solid #000000;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    height: 100%;
+    border-radius: 5px;
+    padding: 56px 70px;
+}
+
+.form {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.form input[type="text"] {
+    margin: 25px 0;
+    width: 100%;
+}
+
+.generation {
+    background: #EBEBEB;
+    border: 1px solid #E1E1E1;
+    box-shadow: 4px 4px 4px rgb(199 199 199 / 94%);
+    border-radius: 10px;
+    font-size: 19px;
+    padding: 15px 30px;
+    overflow-x: auto;
+    display: flex;
+}
+
+.generation span {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form button {
+    margin: 24px auto;
+}
+
+.radioButton {
+    font-size: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.radioButton label {
+    cursor: pointer;
+}
+
+.radioButton label input {
+    box-shadow: none;
+}
