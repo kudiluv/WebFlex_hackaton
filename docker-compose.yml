@@ -1,21 +1,26 @@
 version: "3.0"
 services:
   api:
-    image: node:lts-alpine3.14
+    image: node:17-bullseye-slim
     volumes:
       - ./back:/app
     ports:
       - "5000:5000"
     working_dir: /app
     command: sh -c 
-      "npm install &&
+      "apt update &&
+       apt install ffmpeg -y &&
+       npm install &&
        cd /app/src &&
        npx sequelize-cli db:migrate &&
        npx sequelize-cli db:seed:all &&
        npm run dev
        "
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials/favorable-kiln-335318-c5af524506e9.json
     links:
       - mysql-server
+      - elasticsearch
     depends_on:
       - mysql-server
   front:
@@ -49,6 +54,25 @@ services:
       - ./back/uploads:/sites/hackaton/uploads
       - ./nginx:/etc/nginx/conf.d/
       - ./client:/sites/hackaton
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.10.0
+    ports:
+      - "5601:5601"
+    environment:
+      SERVER_NAME: kibana
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    links:
+      - elasticsearch
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
+    ports:
+      - "9200:9200"
+    environment:
+      discovery.type: single-node
+    volumes:
+      - esdata1:/usr/share/elasticsearch/data
 volumes:
   mysqldata:
+    driver: local
+  esdata1:
     driver: local

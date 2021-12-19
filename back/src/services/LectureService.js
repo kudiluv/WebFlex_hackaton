@@ -1,4 +1,5 @@
-const getTypeDocument = require("../helpers/getTypeDocument")
+const getTypeDocument = require("../helpers/getTypeDocument");
+const EsServices = require("./EsService");
 const models = global.sequelize.models;
 
 class LectureService {
@@ -14,7 +15,9 @@ class LectureService {
         const response = await models.Lecture.create({
             userId: user.id,
             name: lecture.name
-        }); 
+        });
+        const lectureText = lecture.name; 
+        await EsServices.addDocument(lectureText, response.id)
         return response
     }
     

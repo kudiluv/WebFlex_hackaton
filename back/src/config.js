@@ -15,4 +15,5 @@ module.exports = {
     app: {
         port: env.APP_PORT || 5000
     },
+    es: env.ELASTIC_HOST || 'http://elasticsearch:9200'
 }

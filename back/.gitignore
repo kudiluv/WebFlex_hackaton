@@ -127,3 +127,6 @@ dist
 .pnp.*
 
 package-lock.json
+
+uploads
+credentials

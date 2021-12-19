@@ -8,6 +8,8 @@ router.use('/auth', require('./auth'));
 router.use('/teacher',
     passport.authenticate('jwt', {session: false}),
     passportCheckRole(roles.TEACHER), 
-    require('./teacher'))
+    require('./teacher')
+)
+router.use('/lectures', passport.authenticate('jwt', {session: false}), require('./lectures'))
 
 module.exports = router

@@ -4,6 +4,7 @@ const config = require('./config');
 const express = require('express');
 const cors = require('cors');
 const useRouter = require('./controllers/index')
+const startCron = require('./jobs/index')
 const passport = require('passport');
 const usePassportStrategy = require("./middlewares/passport");
 
@@ -21,3 +22,4 @@ usePassportStrategy(passport)
 app.listen(config.app.port, async() => {
     console.log(`Server started on the ${config.app.port} port`);
 })
+startCron()

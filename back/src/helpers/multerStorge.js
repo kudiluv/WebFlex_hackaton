@@ -16,8 +16,8 @@ const upload = multer({
   storage: storage,
   fileFilter: function (req, file, callback) {
     var ext = path.extname(file.originalname);
-    if(ext !== '.mp4' && ext !== '.doc' && ext !== '.docx') {
-      return callback(new Error('Only (.mp4|.doc|.docx) are allowed'))
+    if(ext !== '.mp4' && ext !== '.docx') {
+      return callback(new Error('Only (.mp4|.docx) are allowed'))
     }
     callback(null, true)
   } 
