@@ -1,10 +1,10 @@
 import React from 'react';
-import UserOverview from "../../../pages/UserOverview";
+import Lectures from "../lectures/Lectures";
 
 const TeacherMain = () => {
     return (
         <>
-            <UserOverview/>
+            <Lectures/>
         </>
     );
 };
