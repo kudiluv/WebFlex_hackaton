@@ -30,7 +30,7 @@ const Login = () => {
 
                 <button type="button" onClick={handleSubmit}>Войти</button>
 
-                <a href={'/'}>У вас ещё нет аккаунта?</a>
+                <a href={'/'}>Забыли пароль?</a>
             </AuthorizationLayout>
         </div>}</>
     );

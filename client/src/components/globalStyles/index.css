@@ -75,13 +75,8 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
 }
 
-input:focus {
-    background: #FFFFFF;
-    color: #3C3C3C;
-}
-
 input {
-    background: #EBEBEB;
+    background: #ffffff;
     border: 1px solid #E1E1E1;
     box-shadow: 4px 4px 4px rgba(199, 199, 199, 0.94);
     border-radius: 10px;
