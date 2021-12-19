@@ -58,6 +58,13 @@ const Content = (props) => {
                         return <Search></Search>;
                 }}>
                 </Route>
+                <Route exact path="/admin" render={() => {
+                    if (!checkRole.admin(props.role))
+                        return <Redirect to="/"></Redirect>;
+                    else
+                        return <AddUser></AddUser>;
+                }}>
+                </Route>
                 <Route exact path="/admin/add-user" render={() => {
                     if (!checkRole.admin(props.role))
                         return <Redirect to="/"></Redirect>;
