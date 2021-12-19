@@ -13,7 +13,7 @@ router.get('/:id', async (req, res) => {
             where: {
                 lectureId: lecture.id
             },
-            attributes: ['path', 'type']
+            attributes: ['path', 'type', 'updatedAt']
         })
         res.json({
             lecture,

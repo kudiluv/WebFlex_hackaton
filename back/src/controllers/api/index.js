@@ -11,5 +11,9 @@ router.use('/teacher',
     require('./teacher')
 )
 router.use('/lectures', passport.authenticate('jwt', {session: false}), require('./lectures'))
+router.use('/users', passport.authenticate('jwt', {session: false}),
+    passportCheckRole(roles.ADMIN), 
+    require('./users')
+)
 
 module.exports = router
