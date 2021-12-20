@@ -24,7 +24,7 @@ module.exports = async () => {
             const videoInstance = await new ffmpeg('/app/' + video.path);
             await videoInstance.fnExtractSoundToMP3(audioNameMP3);
 
-            let duration = 134;
+            let duration = videoInstance.metadata.duration;
             const audioFiles = []
             let startTime = 0
             for (let i = 0; i < Math.ceil(duration/59); i++) {
